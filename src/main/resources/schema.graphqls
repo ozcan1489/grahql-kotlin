@@ -1,0 +1,34 @@
+type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+}
+
+type Message {
+    message: String
+}
+
+input LoginDTO {
+    email: String!,
+    password: String!
+}
+
+input RegisterDTO {
+    firstName: String!,
+    lastName: String,
+    email: String!,
+    password: String!
+}
+
+type Query{
+    getAllUser(): [User]
+}
+
+# The Root Mutation for the application
+type Mutation {
+    login(loginDTO: LoginDTO!) : Message
+    register(registerDTO: RegisterDTO!): User
+}
+
